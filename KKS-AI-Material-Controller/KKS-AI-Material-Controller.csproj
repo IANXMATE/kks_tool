@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>KKS_AIMaterialController</AssemblyName>
+    <RootNamespace>KKSAIMaterialController</RootNamespace>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Nullable>disable</Nullable>
+    <!-- Prevent the SDK from compiling every *.cs under deps/KK_Plugins. -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Compile only this plugin. Upstream KK_Plugins is built via ProjectReference. -->
+    <Compile Include="src\**\*.cs" />
+  </ItemGroup>
+
+  <!-- Same dependency strategy as KK_Plugins: NuGet, not a local game folder. -->
+  <ItemGroup>
+    <PackageReference Include="IllusionLibs.BepInEx" Version="5.*" />
+    <PackageReference Include="IllusionLibs.KoikatsuSunshine.AllPackages" Version="*" />
+    <ProjectReference Include="deps\KK_Plugins\src\MaterialEditor.KKS\KKS.MaterialEditor.csproj" Private="false" />
+  </ItemGroup>
+</Project>

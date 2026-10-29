@@ -1,0 +1,18 @@
+.vs/
+bin/
+obj/
+_deps/
+*.user
+*.suo
+*.bak
+*.dll
+*.pdb
+*.xml.bak
+logs/
+exports/
+*.png
+# Do not commit game files or the author's original 35 MB XML/texture assets.
+__pycache__/
+*.pyc
+
+deps/
